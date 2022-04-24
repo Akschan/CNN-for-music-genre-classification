@@ -1,4 +1,9 @@
+################ Creating model fucntions ####################
+
 import json
+import os
+import librosa
+import math
 import numpy as np
 PATH = "data.json" # path to data
 from sklearn.model_selection import train_test_split
@@ -79,3 +84,40 @@ def load_data(path):
     plt.show()
     
     
+    ################ Prediction using model fucntions ####################
+    
+    def Audio_to_predict(audio_path):
+        file_path=r"C:\Users\Ju_Eun\Testing_Model\CNN\rock1.wav"
+        SAMPLE_RATE = 22050
+        hop_length = 512
+        num_segments = 10
+        n_fft = 2048
+        n_mfcc = 13
+        data_test = {"mfcc":[]}
+        SAMPLES_IN_TRACK = SAMPLE_RATE * 30
+        num_sample_per_seg = int(SAMPLES_IN_TRACK / num_segments)
+        expected_num_mfcc_vectors_per_seg = math.ceil(num_sample_per_seg / hop_length)
+        signal,sr = librosa.load(file_path,sr=SAMPLE_RATE,offset=80.0, duration=30.0)
+        
+        for s in range(num_segments):
+            start_sample = num_sample_per_seg * s
+            finish_sample = start_sample + num_sample_per_seg
+
+
+            mfcc = librosa.feature.mfcc(y=signal[start_sample:finish_sample],
+                                        sr=sr,
+                                        n_fft=n_fft,
+                                        n_mfcc=n_mfcc,
+                                        hop_length=hop_length)
+            mfcc = mfcc.T
+            if len(mfcc) == expected_num_mfcc_vectors_per_seg:
+                data_test["mfcc"].append(mfcc.tolist())
+                arr = np.asarray(data_test['mfcc'])
+        return arr
+    
+    def predict(model,x):
+        x = x[...,np.newaxis]
+        prediction = model.predict(x)
+        p_index = np.argmax(prediction, axis=1)
+        genre = np.array(["blues","classical","country","disco","hiphop","jazz","metal","pop","reggae","rock"])
+        print("Predicted genre is {}".format(*genre[p_index]))

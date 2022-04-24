@@ -1,5 +1,5 @@
-from tensorflow import keras
+from Model import *
 
-model = keras.models.load_model(r'C:\Users\Ju_Eun\Testing_Model\CNN\CNN_Genre_Classifier.h5')
+model = keras.models.load_model('CNN_Genre_Classifier.h5')
 
 predict(model,arr)

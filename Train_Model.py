@@ -1,4 +1,4 @@
-from Model.py import * # import our function
+from Model import * # import our function
 
 xtrain, xvalidation, xtest, ytrain, yvalidation, ytest, input_shape = Make_datasets(0.25, 0.2) #make train validation test sets and input shape
                                                                                                #(test is 25% of data and validation is 20%)

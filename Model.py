@@ -5,6 +5,7 @@ import os
 import librosa
 import math
 import numpy as np
+PATH = "data.json" # path to data
 from sklearn.model_selection import train_test_split
 import tensorflow.keras as keras
 from keras.regularizers import l2

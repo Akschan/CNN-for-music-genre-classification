@@ -13,3 +13,8 @@ model.compile(optimizer = optimizer, loss = "sparse_categorical_crossentropy", m
 history = model.fit(xtrain, ytrain, validation_data = (xvalidation,yvalidation), batch_size=32, epochs=50) # train the model
 
 plot_history(history) #plot & save the plot as CNN.png
+
+
+test_error, test_accuracy = model.evaluate(xtest, ytest, verbose=1) # evaluate the model on the test set
+
+print("Error on test set is:{}, Accuracy on test set is:{}".format(test_error,test_accuracy)) 

@@ -1,5 +1,6 @@
 # CNN-for-music-genre-classification
-music genre classification using convolutional neural networks
+
+**music genre classification using convolutional neural networks**
 
 # Representation of the Model
 ![alt text](https://github.com/Akschan/CNN-for-music-genre-classification/blob/main/images/diagram.jpg?raw=true)

@@ -3,11 +3,11 @@
 **music genre classification using convolutional neural networks**
 
 # Representation of the Model
-![alt text](https://github.com/Akschan/CNN-for-music-genre-classification/blob/main/images/Diagram.jpg?raw=true)
+![Representation of the Model](https://github.com/Akschan/CNN-for-music-genre-classification/blob/main/images/Diagram.jpg?raw=true)
 
 
 # Accuracy & Error of the Model
-![alt text](https://github.com/Akschan/CNN-for-music-genre-classification/blob/main/images/CNN.png?raw=true)
+![Accuracy & Error of the Model](https://github.com/Akschan/CNN-for-music-genre-classification/blob/main/images/CNN.png?raw=true)
 
 
 
